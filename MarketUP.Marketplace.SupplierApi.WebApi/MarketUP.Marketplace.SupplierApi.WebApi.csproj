@@ -12,8 +12,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MarketUP.Marketplace.ModelSupplierApi.WebApi</RootNamespace>
-    <AssemblyName>MarketUP.Marketplace.ModelSupplierApi.WebApi</AssemblyName>
+    <RootNamespace>MarketUP.Marketplace.SupplierApi.WebApi</RootNamespace>
+    <AssemblyName>MarketUP.Marketplace.SupplierApi.WebApi</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -104,10 +104,14 @@
     <Compile Include="ApiRouteConfig.cs" />
     <Compile Include="AuthSession.cs" />
     <Compile Include="Commom\IntegrationTypesEnum.cs" />
+    <Compile Include="Commom\OrderStatusEnum.cs" />
     <Compile Include="Commom\PaymentConditionGroupsEnum.cs" />
     <Compile Include="Commom\PaymentConditionTypesEnum.cs" />
     <Compile Include="Commom\ProfilesEnum.cs" />
+    <Compile Include="Commom\SuppliersEnum.cs" />
+    <Compile Include="Commom\VtexOrderIntegrationTypesEnum.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PaymentConditionsController.cs" />
     <Compile Include="Controllers\ShippingTypesController.cs" />
@@ -116,13 +120,43 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="UtilsApi.cs" />
+    <Compile Include="ViewModels\Address.cs" />
     <Compile Include="ViewModels\BaseResponse.cs" />
+    <Compile Include="ViewModels\ClientPaymentCondition.cs" />
+    <Compile Include="ViewModels\ClientRegisterRequest.cs" />
+    <Compile Include="ViewModels\ClientRegisterResponse.cs" />
+    <Compile Include="ViewModels\ClientRegisterStatusResponse.cs" />
+    <Compile Include="ViewModels\DeliveryAddress.cs" />
+    <Compile Include="ViewModels\GetClientResponse.cs" />
+    <Compile Include="ViewModels\GetTokenResponse.cs" />
     <Compile Include="ViewModels\MessageItem.cs" />
+    <Compile Include="ViewModels\OrderProduct.cs" />
+    <Compile Include="ViewModels\OrderRegisterStatusResponse.cs" />
+    <Compile Include="ViewModels\OrderResponse.cs" />
+    <Compile Include="ViewModels\OrderShipping.cs" />
+    <Compile Include="ViewModels\OrderStatusHistory.cs" />
+    <Compile Include="ViewModels\Paging.cs" />
     <Compile Include="ViewModels\PaymentCondition.cs" />
     <Compile Include="ViewModels\PaymentConditionListResponse.cs" />
     <Compile Include="ViewModels\PaymentConditionType.cs" />
+    <Compile Include="ViewModels\PaymentInformation.cs" />
+    <Compile Include="ViewModels\PaymentInstallment.cs" />
+    <Compile Include="ViewModels\Product.cs" />
+    <Compile Include="ViewModels\ProductImage.cs" />
+    <Compile Include="ViewModels\ProductListResponse.cs" />
+    <Compile Include="ViewModels\ProductReference.cs" />
+    <Compile Include="ViewModels\ProductRestriction.cs" />
+    <Compile Include="ViewModels\SendOrderRequest.cs" />
+    <Compile Include="ViewModels\SendOrderResponse.cs" />
+    <Compile Include="ViewModels\ShippingInformation.cs" />
     <Compile Include="ViewModels\ShippingType.cs" />
     <Compile Include="ViewModels\ShippingTypeListResponse.cs" />
+    <Compile Include="ViewModels\ShoppingCartRequest.cs" />
+    <Compile Include="ViewModels\ShoppingCartResponse.cs" />
+    <Compile Include="ViewModels\ShoppingPaymentCondition.cs" />
+    <Compile Include="ViewModels\ShoppingProductRequest.cs" />
+    <Compile Include="ViewModels\ShoppingProductResponse.cs" />
+    <Compile Include="ViewModels\ShoppingShippingType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

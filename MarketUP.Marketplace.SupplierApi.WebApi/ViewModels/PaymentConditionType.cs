@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,12 +16,15 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
         public const string CREDIT_CARD_VISA = "credit-card-visa";
         public const string CREDIT_CARD_DINERS = "credit-card-dinners";
         public const string CREDIT_CARD_HIPERCARD = "credit-card-hipercard";
+        public const string CREDIT_CARD = "credit-card";
         public const string BANK_SLIP = "bank-slip";
 
         //-------
 
+        [JsonProperty("code")]
         public string Code { get; set; }
 
+        [JsonProperty("name")]
         public string Name { get; set; }
         
         public MarketUP.Marketplace.Common.PaymentConditionTypesEnum PaymentConditionTypeEnum { get; set; }
@@ -52,6 +56,7 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
             list.Add(new PaymentConditionType(CREDIT_CARD_VISA,         "Cartão de crédito Visa",           Common.PaymentConditionTypesEnum.CreditCardVisa,            Common.PaymentConditionGroupsEnum.CreditCard));
             list.Add(new PaymentConditionType(CREDIT_CARD_DINERS,       "Cartão de crédito Dinners",        Common.PaymentConditionTypesEnum.CreditCardDiners,          Common.PaymentConditionGroupsEnum.CreditCard));
             list.Add(new PaymentConditionType(CREDIT_CARD_HIPERCARD,    "Cartão de crédito Hipercard",      Common.PaymentConditionTypesEnum.CreditCardHipercard,       Common.PaymentConditionGroupsEnum.CreditCard));
+            list.Add(new PaymentConditionType(CREDIT_CARD,              "Cartão de crédito",                Common.PaymentConditionTypesEnum.CreditCard,                Common.PaymentConditionGroupsEnum.CreditCard));
             list.Add(new PaymentConditionType(BANK_SLIP,                "Boleto bancário",                  Common.PaymentConditionTypesEnum.BankSlip,                  Common.PaymentConditionGroupsEnum.BankSlip));
             return list;
         }

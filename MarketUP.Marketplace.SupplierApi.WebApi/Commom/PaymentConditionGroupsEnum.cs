@@ -11,6 +11,7 @@ namespace MarketUP.Marketplace.Common
         SupplierBilling = 1,
         CreditCard = 2,
         BankSlip = 3,
-        PayPal = 4
+        PayPal = 4,
+        GiftCard = 5
     }
 }

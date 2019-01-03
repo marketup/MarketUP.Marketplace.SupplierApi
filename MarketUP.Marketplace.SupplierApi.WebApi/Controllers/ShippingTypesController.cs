@@ -19,15 +19,16 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi.Controllers
             {
                 response.ShippingTypes = new List<Integration.ModelsSupplierApi.ShippingType>();
 
+                //TODO: Substituir pelos dados reais
                 response.ShippingTypes.Add(new Integration.ModelsSupplierApi.ShippingType() { ShippingTypeID = "s01", Name = "Sedex" });
                 response.ShippingTypes.Add(new Integration.ModelsSupplierApi.ShippingType() { ShippingTypeID = "s02", Name = "Motoboy" });
-
+                
                 return this.GetResultOK(response);
             }
             catch (System.Exception ex)
             {
                 string errorMessage = "Erro ao listar formas de pagamento";
-                response.AddMessage("500", errorMessage);
+                response.AddMessage("500-7410", errorMessage);
                 UtilsApi.WriteError(errorMessage, ex);
                 return this.GetResultInternalServerError(response);
             }

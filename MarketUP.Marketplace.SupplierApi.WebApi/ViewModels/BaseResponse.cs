@@ -20,7 +20,6 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
 
         public BaseResponse()
         {
-
         }
     }
 }

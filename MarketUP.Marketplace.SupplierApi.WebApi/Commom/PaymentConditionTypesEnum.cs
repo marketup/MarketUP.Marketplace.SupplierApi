@@ -17,6 +17,8 @@ namespace MarketUP.Marketplace.Common
         CreditCardDiners = 6,
         CreditCardHipercard = 7,
         BankSlip = 8,
-        Paypal = 9
+        Paypal = 9,
+        CreditCard = 10,
+        GiftCard = 11
     }
 }

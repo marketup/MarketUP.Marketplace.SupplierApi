@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace MarketUP.Marketplace.Common
 {
-    public enum IntegrationTypesEnum
+    public enum SuppliersEnum
     {
+        None = 0,
         Martins = 1,
-        
-        Vtex = 2, 
-
-        Unilever = 3,
-
-        SupplierApi = 4,
-
-        ErpMarketUP = 5
+        TestVtex = 2,
+        NetSuprimentos = 3,
+        Unilever = 4,
+        TestSupplierApi = 5,
+        Roge = 6,
+        Sawary = 7
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,10 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
 {
     public class MessageItem
     {
+        [JsonProperty("code")]
         public string Code { get; set; }
 
+        [JsonProperty("message")]
         public string Message { get; set; }
 
         public MessageItem(string code, string message)

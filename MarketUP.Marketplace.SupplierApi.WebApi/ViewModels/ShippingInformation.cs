@@ -7,23 +7,19 @@ using System.Threading.Tasks;
 
 namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
 {
-    public class ShippingType
+    public class ShippingInformation
     {
-        [JsonProperty("ShippingTypeID")]
+        [JsonProperty("shippingTypeID")]
         public string ShippingTypeID { get; set; }
 
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
-        public ShippingType()
+        public ShippingInformation()
         {
 
         }
 
-        public ShippingType(string shippingTypeID, string name)
+        public ShippingInformation(string shippingTypeID)
         {
             this.ShippingTypeID = shippingTypeID;
-            this.Name = name;
         }
     }
 }

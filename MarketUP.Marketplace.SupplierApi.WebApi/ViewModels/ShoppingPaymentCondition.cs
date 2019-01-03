@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
 {
-    public class PaymentCondition
+    public class ShoppingPaymentCondition
     {
         [JsonProperty("paymentConditionID")]
         public string PaymentConditionID { get; set; }
@@ -18,24 +18,24 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
         [JsonProperty("paymentConditionType")]
         public string PaymentConditionType { get; set; }
 
-        [JsonProperty("order")]
-        public int Order { get; set; }
+        [JsonProperty("value")]
+        public decimal Value { get; set; }
 
-        [JsonProperty("isDefault")]
-        public bool IsDefault { get; set; }
+        [JsonProperty("installments")]
+        public List<PaymentInstallment> Installments { get; set; }
 
-        public PaymentCondition()
+        public ShoppingPaymentCondition()
         {
-
+            
         }
 
-        public PaymentCondition(string paymentCondition, string name, string paymentConditionType, int order, bool isDefault)
+        public ShoppingPaymentCondition(string paymentConditionID, string name, string paymentConditionType, decimal value, List<PaymentInstallment> installments)
         {
-            this.PaymentConditionID = paymentCondition;
+            this.PaymentConditionID = paymentConditionID;
             this.Name = name;
             this.PaymentConditionType = paymentConditionType;
-            this.Order = order;
-            this.IsDefault = isDefault;
+            this.Value = value;
+            this.Installments = installments;
         }
     }
 }

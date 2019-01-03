@@ -17,13 +17,21 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi.Controllers
         {
             return new CustomActionResult<T>(Request, HttpStatusCode.OK, content);
         }
-        
+
         /// <summary>
-        /// Created 201 - OK
+        /// Success 201 - Created
         /// </summary>
         public CustomActionResult<T> GetResultCreated<T>(T content) where T : Integration.ModelsSupplierApi.BaseResponse
         {
             return new CustomActionResult<T>(Request, HttpStatusCode.Created, content);
+        }
+
+        /// <summary>
+        /// Success 202 - Accepted
+        /// </summary>
+        public CustomActionResult<T> GetResultAccepted<T>(T content) where T : Integration.ModelsSupplierApi.BaseResponse
+        {
+            return new CustomActionResult<T>(Request, HttpStatusCode.Accepted, content);
         }
 
         /// <summary>
@@ -35,7 +43,7 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi.Controllers
         }
 
         /// <summary>
-        /// Erro 404 - recurso não encontrado
+        /// Erro 404 - NotFound
         /// </summary>
         public CustomActionResult<T> GetResultNotFound<T>(T content) where T : Integration.ModelsSupplierApi.BaseResponse
         {
@@ -43,7 +51,7 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi.Controllers
         }
 
         /// <summary>
-        /// Erro 401 - Unauthorized - usuário não está logado
+        /// Erro 401 - Unauthorized - Usuário não está logado
         /// </summary>
         public CustomActionResult<T> GetResultUnauthorized<T>(T content) where T : Integration.ModelsSupplierApi.BaseResponse
         {
