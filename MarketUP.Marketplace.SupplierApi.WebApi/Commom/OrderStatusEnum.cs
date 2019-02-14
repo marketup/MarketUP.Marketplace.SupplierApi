@@ -8,6 +8,8 @@ namespace MarketUP.Marketplace.Common
 {
     public enum OrderStatusEnum
     {
+        None = 0,
+
         New = 1,
 
         PaymentPending = 15,
