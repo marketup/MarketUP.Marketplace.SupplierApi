@@ -11,6 +11,12 @@ namespace MarketUP.Marketplace.Common
         None = 0,
         Martins = 1,
         TestVtex = 2,
-        TestSupplierApi = 5
+        NetSuprimentos = 3,
+        Unilever = 4,
+        TestSupplierApi = 5,
+        Roge = 6,
+        Sawary = 7,
+        Reckitt = 8,
+        Belfix = 9
     }
 }

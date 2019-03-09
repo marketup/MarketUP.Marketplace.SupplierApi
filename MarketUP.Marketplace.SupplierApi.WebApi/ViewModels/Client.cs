@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
 {
-    public class GetClientResponse : BaseResponse
+    public class Client
     {
-        [JsonProperty("clientID")]
-        public string ClientID { get; set; }
-
         [JsonProperty("companyName")]
         public string CompanyName { get; set; }
 
@@ -39,30 +36,17 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
         [JsonProperty("billingAddress")]
         public Address BillingAddress { get; set; }
 
-        [JsonProperty("deliveryAddresses")]
-        public List<DeliveryAddress> DeliveryAddresses { get; set; }
+        [JsonProperty("ClientID")]
+        public string ClientID { get; set; }
 
-        [JsonProperty("clientStatus")]
-        public string ClientStatus { get; set; }
-
-        [JsonProperty("clientStatusMessage")]
-        public string ClientStatusMessage { get; set; }
-
-        [JsonProperty("paymentConditions")]
-        public List<ClientPaymentCondition> PaymentConditions { get; set; }
-
-        public GetClientResponse()
+        public Client()
         {
 
         }
 
-        public GetClientResponse(string clientID, string companyName, string cnpj, string ie, string email, string phone, string contactFirstName, string contactLastName, string contactCpf, 
-            Address billingAddress, List<DeliveryAddress> deliveryAddresses,
-            string clientStatus, string clientStatusMessage,
-            List<ClientPaymentCondition> paymentConditions
-            )
+        public Client(string companyName, string cnpj, string ie, string email,  string phone, string contactFirstName, string contactLastName, string contactCpf,Address billingAddress, string clientID)
         {
-            this.ClientID = clientID;
+            this.CompanyName = companyName;
             this.Cnpj = cnpj;
             this.Ie = ie;
             this.Email = email;
@@ -71,10 +55,7 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
             this.ContactLastName = contactLastName;
             this.ContactCpf = contactCpf;
             this.BillingAddress = billingAddress;
-            this.DeliveryAddresses = deliveryAddresses;
-            this.ClientStatus = clientStatus;
-            this.ClientStatusMessage = clientStatusMessage;
-            this.PaymentConditions = paymentConditions;
+            this.ClientID = clientID;
         }
     }
 }

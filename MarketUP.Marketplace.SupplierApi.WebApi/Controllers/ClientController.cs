@@ -7,7 +7,7 @@ using System.Web.Http;
 namespace MarketUP.Marketplace.SupplierApi.WebApi.Controllers
 {
     [RoutePrefix("clients")]
-    public class ClientsController : BaseApiController
+    public class ClientController : BaseApiController
     {
         [Route(""), HttpPost]
         public CustomActionResult<Integration.ModelsSupplierApi.ClientRegisterResponse> Register(Integration.ModelsSupplierApi.ClientRegisterRequest request)

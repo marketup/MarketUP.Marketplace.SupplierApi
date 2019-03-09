@@ -27,12 +27,15 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
         [JsonProperty("shippingInformation")]
         public ShippingInformation ShippingInformation { get; set; }
 
+        [JsonProperty("client")]
+        public Client Client { get; set; }
+
         public SendOrderRequest()
         {
 
         }
 
-        public SendOrderRequest(string clientID, Address billingAddress, DeliveryAddress deliveryAddress, List<ShoppingProductRequest> products, PaymentInformation paymentInformation, ShippingInformation shippingInformation)
+        public SendOrderRequest(string clientID, Address billingAddress, DeliveryAddress deliveryAddress, List<ShoppingProductRequest> products, PaymentInformation paymentInformation, ShippingInformation shippingInformation,Client client)
         {
             this.ClientID = clientID;
             this.BillingAddress = billingAddress;
@@ -40,6 +43,7 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
             this.Products = products;
             this.PaymentInformation = paymentInformation;
             this.ShippingInformation = shippingInformation;
+            this.Client = client;
         }
     }
 }

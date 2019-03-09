@@ -11,6 +11,8 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi.Controllers
     [RoutePrefix("")]
     public class HomeController : ApiController
     {
+        //NOTA: Essa controller é utilizado somente para retornar uma página padrão ao acessar a url da API
+
         [Route("")]
         [HttpGet]
         public HttpResponseMessage Home()

@@ -55,7 +55,7 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
         public decimal Value { get; set; }
         
         [JsonProperty("stockQuantity")]
-        public int? StockQuantity { get; set; }
+        public decimal? StockQuantity { get; set; } //TODO: //TODO: Temporário até que Belfix altere a API -- Usando "Decimal" até que BelFix altere o retorno para Int
 
         [JsonProperty("hasBox")]
         public bool HasBox { get; set; }

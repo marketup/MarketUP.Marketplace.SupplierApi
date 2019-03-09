@@ -111,10 +111,9 @@
     <Compile Include="Commom\SuppliersEnum.cs" />
     <Compile Include="Commom\VtexOrderIntegrationTypesEnum.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
-    <Compile Include="Controllers\ClientsController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PaymentConditionsController.cs" />
-    <Compile Include="Controllers\ShippingTypesController.cs" />
+    <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="CustomActionResult.cs" />
     <Compile Include="Filters\AuthorizationFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -122,6 +121,7 @@
     <Compile Include="UtilsApi.cs" />
     <Compile Include="ViewModels\Address.cs" />
     <Compile Include="ViewModels\BaseResponse.cs" />
+    <Compile Include="ViewModels\Client.cs" />
     <Compile Include="ViewModels\ClientPaymentCondition.cs" />
     <Compile Include="ViewModels\ClientRegisterRequest.cs" />
     <Compile Include="ViewModels\ClientRegisterResponse.cs" />
@@ -157,6 +157,9 @@
     <Compile Include="ViewModels\ShoppingProductRequest.cs" />
     <Compile Include="ViewModels\ShoppingProductResponse.cs" />
     <Compile Include="ViewModels\ShoppingShippingType.cs" />
+    <Compile Include="ViewModels\Supplier.cs" />
+    <Compile Include="ViewModels\SupplierDeliveryRestriction.cs" />
+    <Compile Include="ViewModels\SupplierGetResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">
