@@ -10,6 +10,11 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
     {
         public List<MessageItem> Messages { get; set; }
 
+        public void AddMessage(int code, string message)
+        {
+            AddMessage(code.ToString(), message);
+        }
+
         public void AddMessage(string code, string message)
         {
             if (Messages == null)

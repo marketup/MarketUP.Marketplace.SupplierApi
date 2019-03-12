@@ -16,16 +16,22 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi.Controllers
 
             try
             {
+                if (request == null)
+                {
+                    response.AddMessage(ErrorCodes.RequestNull, "Request null");
+                    return GetResultBadRequest(response);
+                }
+
                 if (string.IsNullOrEmpty(request.CompanyName))
-                    response.AddMessage("400-050", "Nome da empresa não preenchido");
+                    response.AddMessage("3002", "Nome da empresa não preenchido");
 
                 if (string.IsNullOrEmpty(request.Email))
-                    response.AddMessage("400-100", "E-mail não preenchido");
+                    response.AddMessage("3003", "E-mail não preenchido");
                 else if (!new System.Text.RegularExpressions.Regex(@"^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*").Match(request.Email).Success)
-                    response.AddMessage("400-101", "Email inválido");
+                    response.AddMessage("3004", "Email inválido");
 
                 if (string.IsNullOrEmpty(request.BillingAddress.Zipcode))
-                    response.AddMessage("400-110", "CEP não preenchido");
+                    response.AddMessage("3005", "CEP não preenchido");
                 
                 //TODO: Validar os outros campos
 
@@ -64,15 +70,15 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi.Controllers
                     response.UrlCheckStatus = string.Format("/clients/register-status/{0}", response.RegisterKey);
                     //TODO: Substituir pelo ID da requisição do registro
 
-                    return this.GetResultAccepted(response);
+                    return GetResultAccepted(response);
                 }
             }
             catch (System.Exception ex)
             {
                 string errorMessage = "Erro no cadastro de cliente";
-                response.AddMessage("500-2453", errorMessage);
+                response.AddMessage(ErrorCodes.ClientGetUnknownError, errorMessage);
                 UtilsApi.WriteError(errorMessage, ex);
-                return this.GetResultInternalServerError(response);
+                return GetResultInternalServerError(response);
             }
         }
     }

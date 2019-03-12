@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
 {
-    public class GetTokenResponse : BaseResponse
+    public class TokenGetResponse : BaseResponse
     {
         [JsonProperty("token_type")]
         public string TokenType { get; set; }
@@ -18,12 +18,12 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
         [JsonProperty("expires_in")]
         public int? ExpireInSeconds { get; set; }
 
-        public GetTokenResponse()
+        public TokenGetResponse()
         {
 
         }
 
-        public GetTokenResponse(string tokenType, string accessToken, int? expireInSeconds)
+        public TokenGetResponse(string tokenType, string accessToken, int? expireInSeconds)
         {
             this.TokenType = tokenType;
             this.AccessToken = accessToken;

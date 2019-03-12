@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
 {
-    public class SendOrderResponse
+    public class OrderSendResponse
     {
         [JsonProperty("orderID")]
         public string OrderID { get; set; }
@@ -24,12 +24,12 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
         [JsonProperty("bankSlipUrl")]
         public string BankSlipUrl { get; set; }
 
-        public SendOrderResponse()
+        public OrderSendResponse()
         {
 
         }
 
-        public SendOrderResponse(string orderID, string urlOrder, string registerKey, string urlCheckStatus, string bankSlipUrl)
+        public OrderSendResponse(string orderID, string urlOrder, string registerKey, string urlCheckStatus, string bankSlipUrl)
         {
             this.OrderID = orderID;
             this.UrlOrder = urlOrder;

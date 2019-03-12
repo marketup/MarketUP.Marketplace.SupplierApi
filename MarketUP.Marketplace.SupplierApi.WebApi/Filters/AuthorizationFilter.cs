@@ -52,7 +52,7 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi.Filters
         protected override void HandleUnauthorizedRequest(HttpActionContext actionContext)
         {
             var objResponse = new Integration.ModelsSupplierApi.BaseResponse();
-            objResponse.AddMessage("401", "Unauthorized");
+            objResponse.AddMessage(ErrorCodes.Unauthorized, "Access Unauthorized");
 
             var jsonSettings = new Newtonsoft.Json.JsonSerializerSettings();
             jsonSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
@@ -70,14 +70,14 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi.Filters
             httpContext.Items[UtilsApi.HTTP_CONTEXT_ITEM_AUTH_SESSION] = authSession;
         }
 
-        //TODO: Obter os dados do usuário usando o token
+        //TODO: Consultar no banco de dados se o Token é válido
         private AuthSession GetAuthSession(string token)
         {
             if (string.IsNullOrEmpty(token))
                 return null;
             
-            if (token.Equals("1234567890"))
-                return new AuthSession() { Name = "MarketUP", Email = "atendimento@marketup.com" };
+            if (token.Equals(UtilsApi.TOKEN_TEST))
+                return new AuthSession() { Name = "MarketUP", Email = "ti@marketup.com" };
 
             return null; //Token inválido
         }

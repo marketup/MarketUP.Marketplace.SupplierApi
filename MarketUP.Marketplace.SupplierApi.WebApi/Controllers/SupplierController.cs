@@ -52,14 +52,14 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi.Controllers
                 response.SupplierDeliveryRestrictions.Add(new Integration.ModelsSupplierApi.SupplierDeliveryRestriction("RS", "Porto Alegre"));
                 response.SupplierDeliveryRestrictions.Add(new Integration.ModelsSupplierApi.SupplierDeliveryRestriction("RJ", "Caxias do Sul"));
 
-                return this.GetResultOK(response);
+                return GetResultOK(response);
             }
             catch (System.Exception ex)
             {
-                string errorMessage = "Erro ao listar formas de pagamento";
-                response.AddMessage("500-7410", errorMessage);
+                string errorMessage = "Erro ao obter dados do fornecedor";
+                response.AddMessage(ErrorCodes.SupplierGetUnknownError, errorMessage);
                 UtilsApi.WriteError(errorMessage, ex);
-                return this.GetResultInternalServerError(response);
+                return GetResultInternalServerError(response);
             }
         }
     }

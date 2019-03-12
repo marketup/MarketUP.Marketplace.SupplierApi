@@ -11,7 +11,7 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi.Controllers
     [RoutePrefix("")]
     public class HomeController : ApiController
     {
-        //NOTA: Essa controller é utilizado somente para retornar uma página padrão ao acessar a url da API
+        //NOTA: Essa controller é utilizada somente para retornar uma página padrão ao acessar a url da API
 
         [Route("")]
         [HttpGet]
@@ -20,10 +20,10 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi.Controllers
             var sb = new StringBuilder();
             sb.AppendLine("<html>");
             sb.AppendLine("<head>");
-            sb.AppendLine("   <title>Modelo API Fornecedor Marketplace</title>");
+            sb.AppendLine("   <title>Modelo API Fornecedor Marketplace MarketUP</title>");
             sb.AppendLine("</head>");
             sb.AppendLine("<body>");
-            sb.AppendLine("   <h1>Modelo API Fornecedor Marketplace</h1>");
+            sb.AppendLine("   <h1>Modelo API Fornecedor Marketplace MarketUP</h1>");
             sb.AppendLine("</body>");
             sb.AppendLine("</html>");
 

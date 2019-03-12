@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
 {
-    public class SendOrderRequest
+    public class OrderSendRequest
     {
         [JsonProperty("clientID")]
         public string ClientID { get; set; }
@@ -30,12 +30,12 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
         [JsonProperty("client")]
         public Client Client { get; set; }
 
-        public SendOrderRequest()
+        public OrderSendRequest()
         {
 
         }
 
-        public SendOrderRequest(string clientID, Address billingAddress, DeliveryAddress deliveryAddress, List<ShoppingProductRequest> products, PaymentInformation paymentInformation, ShippingInformation shippingInformation,Client client)
+        public OrderSendRequest(string clientID, Address billingAddress, DeliveryAddress deliveryAddress, List<ShoppingProductRequest> products, PaymentInformation paymentInformation, ShippingInformation shippingInformation,Client client)
         {
             this.ClientID = clientID;
             this.BillingAddress = billingAddress;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
 {
-    public class GetClientResponse : BaseResponse
+    public class ClientGetResponse : BaseResponse
     {
         [JsonProperty("clientID")]
         public string ClientID { get; set; }
@@ -51,12 +51,12 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
         [JsonProperty("paymentConditions")]
         public List<ClientPaymentCondition> PaymentConditions { get; set; }
 
-        public GetClientResponse()
+        public ClientGetResponse()
         {
 
         }
 
-        public GetClientResponse(string clientID, string companyName, string cnpj, string ie, string email, string phone, string contactFirstName, string contactLastName, string contactCpf, 
+        public ClientGetResponse(string clientID, string companyName, string cnpj, string ie, string email, string phone, string contactFirstName, string contactLastName, string contactCpf, 
             Address billingAddress, List<DeliveryAddress> deliveryAddresses,
             string clientStatus, string clientStatusMessage,
             List<ClientPaymentCondition> paymentConditions
