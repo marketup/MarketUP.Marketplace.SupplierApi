@@ -8,7 +8,7 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi
     public static class UtilsApi
     {
         public const string HTTP_CONTEXT_ITEM_AUTH_SESSION = "AuthSession";
-        public const string TOKEN_TEST = "00000000-0000-0000-0000-000000000000";
+        public const string TOKEN_TEST = "00000000000000000000000000000000";
         
         public static void WriteError(string message, System.Exception ex = null)
         {

@@ -26,7 +26,7 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi.Controllers
 
                 if (string.IsNullOrEmpty(request.grant_type))
                 {
-                    response.AddMessage(ErrorCodes.TokenInvalidGrantType, "Parâmetro \"grant_type\" não preenchido");
+                    response.AddMessage(ErrorCodes.TokenGet_InvalidGrantType, "Parâmetro \"grant_type\" não preenchido");
                     return GetResultBadRequest(response);
                 }
                 
@@ -47,7 +47,7 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi.Controllers
                     )
                     {
                         //TODO: Criar processo para gerar o token
-                        // 1- Gerar um novo token (ex: Guid.NewGuid().ToString().ToLower()) 
+                        // 1- Gerar um novo token -- ex: Guid.NewGuid().ToString("N").ToLower()
                         // 2- Gravar no Banco de dados
                         // 3- Alterar classe "Filters/AuthorizationFilter.cs" para validar esse token
 
@@ -59,13 +59,13 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi.Controllers
                     }
                     else
                     {
-                        response.AddMessage(ErrorCodes.TokenInvalidCredential, "E-mail ou senha inválidos");
+                        response.AddMessage(ErrorCodes.TokenGet_InvalidCredential, "E-mail ou senha inválidos");
                         return GetResultUnauthorized(response);
                     }
                 }
                 else
                 {
-                    response.AddMessage(ErrorCodes.TokenInvalidGrantType, "Parâmetro \"grant_type\" inválido");
+                    response.AddMessage(ErrorCodes.TokenGet_InvalidGrantType, "Parâmetro \"grant_type\" inválido");
                     return GetResultBadRequest(response);
                 }
 
@@ -74,7 +74,7 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi.Controllers
             catch (System.Exception ex)
             {
                 string errorMessage = "Erro ao gerar o token de autenticação";
-                response.AddMessage(ErrorCodes.TokenUnknownError, errorMessage);
+                response.AddMessage(ErrorCodes.TokenGet_UnknownError, errorMessage);
                 UtilsApi.WriteError(errorMessage, ex);
                 return GetResultInternalServerError(response);
             }

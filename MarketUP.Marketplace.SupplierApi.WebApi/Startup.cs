@@ -1,6 +1,7 @@
 ﻿using Microsoft.Owin;
 using Newtonsoft.Json.Serialization;
 using Owin;
+using Swashbuckle.Application;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,8 +31,22 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi
         private void ConfigureApi(IAppBuilder app, HttpConfiguration config)
         {
             app.UseWebApi(config);
-            
+
+            //CORS
+            var cors = new System.Web.Http.Cors.EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors);
+
+            //info: https://github.com/domaindrivendev/Swashbuckle/blob/master/README.md
+            config
+                .EnableSwagger(c => {
+                    c.SingleApiVersion("v1", "API Fornecedor Marketplace MarketUP");
+                    c.UseFullTypeNameInSchemaIds();
+                    c.IgnoreObsoleteProperties();
+                })
+                .EnableSwaggerUi();
+
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            config.Formatters.JsonFormatter.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
             config.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
 
             config.Formatters.Add(new BrowserJsonFormatter());

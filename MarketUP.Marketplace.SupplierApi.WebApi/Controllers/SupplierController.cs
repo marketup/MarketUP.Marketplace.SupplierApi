@@ -57,7 +57,7 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi.Controllers
             catch (System.Exception ex)
             {
                 string errorMessage = "Erro ao obter dados do fornecedor";
-                response.AddMessage(ErrorCodes.SupplierGetUnknownError, errorMessage);
+                response.AddMessage(ErrorCodes.SupplierGet_UnknownError, errorMessage);
                 UtilsApi.WriteError(errorMessage, ex);
                 return GetResultInternalServerError(response);
             }
