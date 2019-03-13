@@ -15,10 +15,14 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
         [JsonProperty("message")]
         public string Message { get; set; }
 
-        public MessageItem(string code, string message)
+        [JsonProperty("exception")]
+        public string Exception { get; set; }
+
+        public MessageItem(string code, string message, string exception = null)
         {
             this.Code = code;
             this.Message = message;
+            this.Exception = exception;
         }
     }
 }

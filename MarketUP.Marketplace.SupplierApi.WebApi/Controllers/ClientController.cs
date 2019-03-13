@@ -113,9 +113,9 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi.Controllers
             }
             catch (System.Exception ex)
             {
-                string errorMessage = "Erro no cadastro de cliente";
-                response.AddMessage(ErrorCodes.ClientRegister_UnknownError, errorMessage);
-                UtilsApi.WriteError(errorMessage, ex);
+                string errorMessage = "Erro ao cadastrar cliente";
+                response.AddMessage(ErrorCodes.ClientRegister_UnknownError, errorMessage, ex.GetFullExceptionMessage());
+                UtilsApi.WriteError(errorMessage, ex, string.Format("Request={0}", UtilsApi.JsonSerialize(request)));
                 return GetResultInternalServerError(response);
             }
         }
@@ -167,16 +167,127 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi.Controllers
             }
             catch (System.Exception ex)
             {
-                string errorMessage = "Erro no cadastro de cliente";
-                response.AddMessage(ErrorCodes.ClientGetRegisterStatus_UnknownError, errorMessage);
-                UtilsApi.WriteError(errorMessage, ex);
+                string errorMessage = "Erro ao consultar o status da chave de registro do cliente";
+                response.AddMessage(ErrorCodes.ClientGetRegisterStatus_UnknownError, errorMessage, ex.GetFullExceptionMessage());
+                UtilsApi.WriteError(errorMessage, ex, string.Format("RegisterKey={0}", registerKey));
                 return GetResultInternalServerError(response);
             }
         }
 
-        /*public CustomActionResult<Integration.ModelsSupplierApi.ClientGetResponse> Get()
+        [Route("{clientID}"), HttpGet]
+        public CustomActionResult<Integration.ModelsSupplierApi.ClientGetResponse> Get(string clientID)
         {
+            var response = new Integration.ModelsSupplierApi.ClientGetResponse();
 
-        }*/
+            try
+            {
+                if (string.IsNullOrEmpty(clientID))
+                {
+                    response.AddMessage(ErrorCodes.ClientGet_ClientIdEmpty, "Parâmetro ClientID não preenchido");
+                    return GetResultBadRequest(response);
+                }
+
+                //TODO: Consultar o cliente no seu banco de dados
+                if (clientID.Equals("cli0001"))
+                {
+                    var deliveryAddressList = new List<Integration.ModelsSupplierApi.DeliveryAddress>();
+                    deliveryAddressList.Add(new Integration.ModelsSupplierApi.DeliveryAddress("Casa", "Eduardo Coutinho", "Av. Angélica", "2529", null, "Bela Vista", "01227200", "São Paulo", "SP", "Brasil"));
+
+                    var billingAddress = new Integration.ModelsSupplierApi.Address("Av. Angélica", "2529", null, "Bela Vista", "01227200", "São Paulo", "SP", "Brasil");
+
+                    var clientPaymentConditionsList = new List<Integration.ModelsSupplierApi.ClientPaymentCondition>();
+                    clientPaymentConditionsList.Add(new Integration.ModelsSupplierApi.ClientPaymentCondition("p01", 100, 500));
+                    clientPaymentConditionsList.Add(new Integration.ModelsSupplierApi.ClientPaymentCondition("p02", 100, null));
+
+                    response = new Integration.ModelsSupplierApi.ClientGetResponse("cli0001",
+                        "NUVEMSIS PARTICIPAÇÕES LTDA",
+                        "13998916000124",
+                        "142851418117",
+                        "ti@marketup.com",
+                        "(11) 3895-7038",
+                        "Eduardo",
+                        "Coutinho",
+                        "13632749370",
+                        billingAddress,
+                        deliveryAddressList,
+                        "active",
+                        null,
+                        clientPaymentConditionsList);
+
+                    return GetResultOK(response);
+                }
+                else
+                {
+                    response.AddMessage(ErrorCodes.ClientGet_ClientIdEmpty, "Cliente não encontrado");
+                    return GetResultNotFound(response);
+                }
+            }
+            catch (System.Exception ex)
+            {
+                string errorMessage = "Erro ao consultar cliente";
+                response.AddMessage(ErrorCodes.ClientGet_UnknownError, errorMessage, ex.GetFullExceptionMessage());
+                UtilsApi.WriteError(errorMessage, ex, string.Format("ClientID={0}", clientID));
+                return GetResultInternalServerError(response);
+            }
+        }
+
+        [Route("{clientID}"), HttpPost]
+        public CustomActionResult<Integration.ModelsSupplierApi.ClientUpdateResponse> Update(string clientID, Integration.ModelsSupplierApi.ClientUpdateRequest request)
+        {
+            var response = new Integration.ModelsSupplierApi.ClientUpdateResponse();
+
+            try
+            {
+                if (string.IsNullOrEmpty(clientID))
+                {
+                    response.AddMessage(ErrorCodes.ClientUpdate_ClientIdEmpty, "Parâmetro ClientID não preenchido");
+                    return GetResultBadRequest(response);
+                }
+
+                //TODO: Consultar o cliente no seu banco de dados
+                if (clientID.Equals("cli0001"))
+                {
+                    //TODO: Atualizar o registro
+
+                    var deliveryAddressList = new List<Integration.ModelsSupplierApi.DeliveryAddress>();
+                    deliveryAddressList.Add(new Integration.ModelsSupplierApi.DeliveryAddress("Casa", "Eduardo Coutinho", "Av. Angélica", "2529", null, "Bela Vista", "01227200", "São Paulo", "SP", "Brasil"));
+
+                    var billingAddress = new Integration.ModelsSupplierApi.Address("Av. Angélica", "2529", null, "Bela Vista", "01227200", "São Paulo", "SP", "Brasil");
+
+                    var clientPaymentConditionsList = new List<Integration.ModelsSupplierApi.ClientPaymentCondition>();
+                    clientPaymentConditionsList.Add(new Integration.ModelsSupplierApi.ClientPaymentCondition("p01", 100, 500));
+                    clientPaymentConditionsList.Add(new Integration.ModelsSupplierApi.ClientPaymentCondition("p02", 100, null));
+
+                    response = new Integration.ModelsSupplierApi.ClientUpdateResponse("cli0001",
+                        "NUVEMSIS PARTICIPAÇÕES LTDA",
+                        "13998916000124",
+                        "142851418117",
+                        "ti@marketup.com",
+                        "(11) 3895-7038",
+                        "Eduardo",
+                        "Coutinho",
+                        "13632749370",
+                        billingAddress,
+                        deliveryAddressList,
+                        "active",
+                        null,
+                        clientPaymentConditionsList);
+
+                    return GetResultOK(response);
+                }
+                else
+                {
+                    response.AddMessage(ErrorCodes.ClientUpdate_ClientIdEmpty, "Cliente não encontrado");
+                    return GetResultNotFound(response);
+                }
+            }
+            catch (System.Exception ex)
+            {
+                string errorMessage = "Erro ao atualizar cliente";
+                response.AddMessage(ErrorCodes.ClientUpdate_UnknownError, errorMessage, ex.GetFullExceptionMessage());
+                UtilsApi.WriteError(errorMessage, ex, string.Format("Request={0}", UtilsApi.JsonSerialize(request)));
+                return GetResultInternalServerError(response);
+            }
+        }
     }
 }

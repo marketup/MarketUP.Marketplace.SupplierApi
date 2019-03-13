@@ -9,6 +9,9 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
 {
     public class DeliveryAddress
     {
+        [JsonProperty("referenceName")]
+        public string ReferenceName { get; set; }
+
         [JsonProperty("receiverName")]
         public string ReceiverName { get; set; }
 
@@ -41,8 +44,9 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
 
         }
 
-        public DeliveryAddress(string receiverName, string street, string number, string complement, string quarter, string zipcode, string city, string state, string country)
+        public DeliveryAddress(string referenceName, string receiverName, string street, string number, string complement, string quarter, string zipcode, string city, string state, string country)
         {
+            this.ReferenceName = referenceName;
             this.ReceiverName = receiverName;
             this.Street = street;
             this.Number = number;

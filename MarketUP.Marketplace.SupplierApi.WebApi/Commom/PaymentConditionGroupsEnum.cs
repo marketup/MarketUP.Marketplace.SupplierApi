@@ -12,6 +12,7 @@ namespace MarketUP.Marketplace.Common
         CreditCard = 2,
         BankSlip = 3,
         PayPal = 4,
-        GiftCard = 5
+        GiftCard = 5,
+        MarketUPPayFaster = 6
     }
 }

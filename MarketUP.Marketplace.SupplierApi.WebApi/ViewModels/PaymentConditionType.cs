@@ -18,6 +18,7 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
         public const string CREDIT_CARD_HIPERCARD = "credit-card-hipercard";
         public const string CREDIT_CARD = "credit-card";
         public const string BANK_SLIP = "bank-slip";
+        public const string MARKETUP_PAYFASTER = "marketup-payfaster";
 
         //-------
 
@@ -58,6 +59,7 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
             list.Add(new PaymentConditionType(CREDIT_CARD_HIPERCARD,    "Cartão de crédito Hipercard",      Common.PaymentConditionTypesEnum.CreditCardHipercard,       Common.PaymentConditionGroupsEnum.CreditCard));
             list.Add(new PaymentConditionType(CREDIT_CARD,              "Cartão de crédito",                Common.PaymentConditionTypesEnum.CreditCard,                Common.PaymentConditionGroupsEnum.CreditCard));
             list.Add(new PaymentConditionType(BANK_SLIP,                "Boleto bancário",                  Common.PaymentConditionTypesEnum.BankSlip,                  Common.PaymentConditionGroupsEnum.BankSlip));
+            list.Add(new PaymentConditionType(MARKETUP_PAYFASTER,       "MarketUP PayFaster",               Common.PaymentConditionTypesEnum.MarketUPPayFaster,         Common.PaymentConditionGroupsEnum.MarketUPPayFaster));
             return list;
         }
 

@@ -74,7 +74,7 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi.Controllers
             catch (System.Exception ex)
             {
                 string errorMessage = "Erro ao gerar o token de autenticação";
-                response.AddMessage(ErrorCodes.TokenGet_UnknownError, errorMessage);
+                response.AddMessage(ErrorCodes.TokenGet_UnknownError, errorMessage, ex.GetFullExceptionMessage());
                 UtilsApi.WriteError(errorMessage, ex);
                 return GetResultInternalServerError(response);
             }

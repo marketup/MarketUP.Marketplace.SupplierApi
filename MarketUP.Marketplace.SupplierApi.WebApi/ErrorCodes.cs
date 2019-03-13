@@ -35,5 +35,13 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi
         public const int ClientGetRegisterStatus_RegisterKeyEmpty = 3102;
         public const int ClientGetRegisterStatus_ClientRejected = 3103;
         public const int ClientGetRegisterStatus_RegisterKeyNotFound = 3104;
+
+        public const int ClientGet_UnknownError = 3201;
+        public const int ClientGet_ClientIdEmpty = 3202;
+        public const int ClientGet_ClientNotFound = 3203;
+
+        public const int ClientUpdate_UnknownError = 3201;
+        public const int ClientUpdate_ClientIdEmpty = 3202;
+        public const int ClientUpdate_ClientNotFound = 3203;
     }
 }

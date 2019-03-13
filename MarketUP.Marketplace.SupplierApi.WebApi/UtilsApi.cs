@@ -10,11 +10,14 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi
         public const string HTTP_CONTEXT_ITEM_AUTH_SESSION = "AuthSession";
         public const string TOKEN_TEST = "00000000000000000000000000000000";
         
-        public static void WriteError(string message, System.Exception ex = null)
+        public static void WriteError(string message, System.Exception ex = null, string additionalInformation = null)
         {
             //TODO: Log error
 
             System.Diagnostics.Debug.WriteLine(message);
+
+            if (ex != null)
+                System.Diagnostics.Debug.WriteLine(string.Format("--------\r\n{0}\r\n--------", ex.GetFullExceptionMessage()));
         }
 
         public static string ParseToBase64(string plainText)

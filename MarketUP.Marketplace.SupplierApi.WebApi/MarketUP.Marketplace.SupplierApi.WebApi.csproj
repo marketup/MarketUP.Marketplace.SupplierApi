@@ -123,6 +123,7 @@
     <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="CustomActionResult.cs" />
     <Compile Include="ErrorCodes.cs" />
+    <Compile Include="Extensions\ExceptionExtensions.cs" />
     <Compile Include="Filters\AuthorizationFilter.cs" />
     <Compile Include="Filters\RequireHttpsFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -136,6 +137,8 @@
     <Compile Include="ViewModels\ClientRegisterRequest.cs" />
     <Compile Include="ViewModels\ClientRegisterResponse.cs" />
     <Compile Include="ViewModels\ClientRegisterStatusResponse.cs" />
+    <Compile Include="ViewModels\ClientUpdateRequest.cs" />
+    <Compile Include="ViewModels\ClientUpdateResponse.cs" />
     <Compile Include="ViewModels\DeliveryAddress.cs" />
     <Compile Include="ViewModels\MessageItem.cs" />
     <Compile Include="ViewModels\OrderProduct.cs" />
