@@ -43,5 +43,8 @@ namespace MarketUP.Marketplace.SupplierApi.WebApi
         public const int ClientUpdate_UnknownError = 3201;
         public const int ClientUpdate_ClientIdEmpty = 3202;
         public const int ClientUpdate_ClientNotFound = 3203;
+
+        public const int ProductList_UnknownError = 4001;
+        public const int ProductList_InvalidPage = 4002;
     }
 }
