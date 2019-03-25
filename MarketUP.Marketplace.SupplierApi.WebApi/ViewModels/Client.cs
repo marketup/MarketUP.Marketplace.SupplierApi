@@ -36,6 +36,9 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
         [JsonProperty("billingAddress")]
         public Address BillingAddress { get; set; }
 
+        [JsonProperty("deliveryAddresses")]
+        public List<DeliveryAddress> DeliveryAddresses { get; set; }
+
         [JsonProperty("ClientID")]
         public string ClientID { get; set; }
 
@@ -44,7 +47,8 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
 
         }
 
-        public Client(string companyName, string cnpj, string ie, string email,  string phone, string contactFirstName, string contactLastName, string contactCpf,Address billingAddress, string clientID)
+        public Client(string companyName, string cnpj, string ie, string email,  string phone, string contactFirstName, string contactLastName, string contactCpf, 
+            Address billingAddress, List<DeliveryAddress> deliveryAddresses, string clientID)
         {
             this.CompanyName = companyName;
             this.Cnpj = cnpj;
@@ -55,6 +59,7 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
             this.ContactLastName = contactLastName;
             this.ContactCpf = contactCpf;
             this.BillingAddress = billingAddress;
+            this.DeliveryAddresses = deliveryAddresses;
             this.ClientID = clientID;
         }
     }
