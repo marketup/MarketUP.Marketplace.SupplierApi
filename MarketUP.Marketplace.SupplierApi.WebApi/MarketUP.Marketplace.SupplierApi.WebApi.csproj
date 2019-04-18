@@ -109,10 +109,12 @@
     <Compile Include="ApiFilterConfig.cs" />
     <Compile Include="ApiRouteConfig.cs" />
     <Compile Include="AuthSession.cs" />
+    <Compile Include="Commom\AuthorizationTypesEnum.cs" />
     <Compile Include="Commom\IntegrationTypesEnum.cs" />
     <Compile Include="Commom\OrderStatusEnum.cs" />
     <Compile Include="Commom\PaymentConditionGroupsEnum.cs" />
     <Compile Include="Commom\PaymentConditionTypesEnum.cs" />
+    <Compile Include="Commom\PaymentStatusEnum.cs" />
     <Compile Include="Commom\ProfilesEnum.cs" />
     <Compile Include="Commom\SuppliersEnum.cs" />
     <Compile Include="Commom\VtexOrderIntegrationTypesEnum.cs" />
@@ -133,6 +135,7 @@
     <Compile Include="UtilsApi.cs" />
     <Compile Include="ViewModels\Address.cs" />
     <Compile Include="ViewModels\BaseResponse.cs" />
+    <Compile Include="ViewModels\BaseResponseErp.cs" />
     <Compile Include="ViewModels\Client.cs" />
     <Compile Include="ViewModels\ClientGetResponse.cs" />
     <Compile Include="ViewModels\ClientPaymentCondition.cs" />
@@ -142,6 +145,7 @@
     <Compile Include="ViewModels\ClientUpdateRequest.cs" />
     <Compile Include="ViewModels\ClientUpdateResponse.cs" />
     <Compile Include="ViewModels\DeliveryAddress.cs" />
+    <Compile Include="ViewModels\InvoiceInformation.cs" />
     <Compile Include="ViewModels\MessageItem.cs" />
     <Compile Include="ViewModels\OrderProduct.cs" />
     <Compile Include="ViewModels\OrderRegisterStatusResponse.cs" />
@@ -174,6 +178,8 @@
     <Compile Include="ViewModels\SupplierDeliveryRestriction.cs" />
     <Compile Include="ViewModels\TokenGetRequest.cs" />
     <Compile Include="ViewModels\TokenGetResponse.cs" />
+    <Compile Include="ViewModels\UpdatePaymentInformationRequest.cs" />
+    <Compile Include="ViewModels\UpdatePaymentInformationResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">
