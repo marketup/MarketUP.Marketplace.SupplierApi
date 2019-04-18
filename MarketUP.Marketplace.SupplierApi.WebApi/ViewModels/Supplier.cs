@@ -48,6 +48,15 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
         [JsonProperty("policyText")]
         public string PolicyText { get; set; }
 
+        [JsonProperty("usePayFaster")]
+        public bool UsePayFaster { get; set; }
+
+        [JsonProperty("clientRegisterRequired")]
+        public bool ClientRegisterRequired { get; set; }
+
+        [JsonProperty("useFixedDeliveryAddress")]
+        public bool UseFixedDeliveryAddress { get; set; }
+
         public Supplier()
         {
 
@@ -67,7 +76,11 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
             List<PaymentCondition> paymentConditions,
             List<SupplierDeliveryRestriction> supplierDeliveryRestrictions,
             string aboutText,
-            string policyText)
+            string policyText,
+            bool usePayFaster,
+            bool clientRegisterRequired,
+            bool useFixedDeliveryAddress
+            )
         {
             this.Name = name;
             this.CompanyOfficialName = companyOfficialName;
@@ -80,8 +93,13 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
             this.ShippingTypes = shippingTypes;
             this.PaymentConditions = paymentConditions;
             this.SupplierDeliveryRestrictions = supplierDeliveryRestrictions;
+
             this.AboutText = aboutText;
             this.PolicyText = policyText;
+
+            this.UsePayFaster = usePayFaster;
+            this.ClientRegisterRequired = clientRegisterRequired;
+            this.UseFixedDeliveryAddress = useFixedDeliveryAddress;
         }
     }
 }

@@ -24,18 +24,22 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
         [JsonProperty("isDefault")]
         public bool IsDefault { get; set; }
 
+        [JsonProperty("daysForPayment")]
+        public int? DaysForPayment { get; set; }
+
         public PaymentCondition()
         {
 
         }
 
-        public PaymentCondition(string paymentCondition, string name, string paymentConditionType, int order, bool isDefault)
+        public PaymentCondition(string paymentCondition, string name, string paymentConditionType, int order, bool isDefault, int? daysForPayment)
         {
             this.PaymentConditionID = paymentCondition;
             this.Name = name;
             this.PaymentConditionType = paymentConditionType;
             this.Order = order;
             this.IsDefault = isDefault;
+            this.DaysForPayment = daysForPayment;
         }
     }
 }

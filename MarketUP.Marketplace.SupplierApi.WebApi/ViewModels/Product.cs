@@ -55,7 +55,8 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
         public decimal Value { get; set; }
         
         [JsonProperty("stockQuantity")]
-        public decimal? StockQuantity { get; set; } //TODO: //TODO: Temporário até que Belfix altere a API -- Usando "Decimal" até que BelFix altere o retorno para Int
+        public decimal? StockQuantity { get; set; }
+
 
         [JsonProperty("hasBox")]
         public bool HasBox { get; set; }
@@ -65,6 +66,10 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
 
         [JsonProperty("boxValue")]
         public decimal BoxValue { get; set; }
+
+        [JsonProperty("boxStockQuantity")]
+        public decimal? BoxStockQuantity { get; set; }
+
 
         [JsonProperty("isActive")]
         public bool IsActive { get; set; }
@@ -79,11 +84,13 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
 
         public Product(string productID, string name, string description, string barcode, string ncm, string brand,
             string itemGroup, string itemCategory, string itemSubcategory,
-            List<ProductImage> images, int itensInPackage, bool hasBox, int packagesInBox,
-            int minimumSaleQuantity, int multipleQuantity, string sellerCode, 
-            decimal value, decimal boxValue, int? stockQuantity, bool isActive,
-            List<ProductRestriction> restrictions
-            )
+            List<ProductImage> images, 
+            int itensInPackage, int minimumSaleQuantity, int multipleQuantity, 
+            string sellerCode,
+            decimal value, int? stockQuantity,
+            bool hasBox, int packagesInBox, decimal boxValue, int? boxStockQuantity,
+            bool isActive,
+            List<ProductRestriction> restrictions)
         {
             this.ProductID = productID;
             this.Name = name;
@@ -96,14 +103,18 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
             this.ItemSubcategory = itemSubcategory;
             this.Images = images;
             this.ItemsInPackage = itensInPackage;
-            this.HasBox = hasBox;
-            this.PackagesInBox = packagesInBox;
             this.MinimumSaleQuantity = minimumSaleQuantity;
             this.MultipleQuantity = multipleQuantity;
             this.SellerCode = sellerCode;
+
             this.Value = value;
-            this.BoxValue = boxValue;
             this.StockQuantity = stockQuantity;
+
+            this.HasBox = hasBox;
+            this.PackagesInBox = packagesInBox;
+            this.BoxValue = boxValue;
+            this.BoxStockQuantity = boxStockQuantity;
+
             this.IsActive = isActive;
             this.Restrictions = restrictions;
         }

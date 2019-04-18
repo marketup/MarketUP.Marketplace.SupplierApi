@@ -24,18 +24,21 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
         [JsonProperty("installments")]
         public List<PaymentInstallment> Installments { get; set; }
 
+        public int? DaysForPayment { get; set; }
+
         public ShoppingPaymentCondition()
         {
             
         }
 
-        public ShoppingPaymentCondition(string paymentConditionID, string name, string paymentConditionType, decimal value, List<PaymentInstallment> installments)
+        public ShoppingPaymentCondition(string paymentConditionID, string name, string paymentConditionType, decimal value, List<PaymentInstallment> installments, int? daysForPayment)
         {
             this.PaymentConditionID = paymentConditionID;
             this.Name = name;
             this.PaymentConditionType = paymentConditionType;
             this.Value = value;
             this.Installments = installments;
+            this.DaysForPayment = daysForPayment;
         }
     }
 }

@@ -33,6 +33,9 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
         [JsonProperty("shippingInformation")]
         public ShippingInformation ShippingInformation { get; set; }
 
+        [JsonProperty("invoiceInformation")]
+        public InvoiceInformation InvoiceInformation { get; set; }
+
         [JsonProperty("orderStatus")]
         public string OrderStatus { get; set; }
 
@@ -55,7 +58,8 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
 
         public OrderResponse(string orderID, string clientID, Address billingAddress, DeliveryAddress deliveryAddress, List<OrderProduct> products,
             PaymentInformation paymentInformation, string bankSlipUrl, ShippingInformation shippingInformation,
-            string orderStatus, string orderStatusMessage, List<OrderShipping> orderShippings, List<OrderStatusHistory> orderStatusHistory,Client client)
+            string orderStatus, string orderStatusMessage, List<OrderShipping> orderShippings, List<OrderStatusHistory> orderStatusHistory,
+            Client client, InvoiceInformation invoiceInformation)
         {
             this.OrderID = orderID;
             this.ClientID = clientID;
@@ -70,6 +74,7 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
             this.OrderShippings = orderShippings;
             this.OrderStatusHistory = orderStatusHistory;
             this.Client = client;
+            this.InvoiceInformation = invoiceInformation;
         }
     }
 }

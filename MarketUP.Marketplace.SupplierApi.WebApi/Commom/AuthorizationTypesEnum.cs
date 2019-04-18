@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace MarketUP.Marketplace.Common
 {
-    public enum PaymentConditionGroupsEnum
+    public enum AuthorizationTypesEnum
     {
-        SupplierBilling = 1,
-        CreditCard = 2,
-        BankSlip = 3,
-        PayPal = 4,
-        GiftCard = 5
+        None = 0,
+
+        FormUrlEncoded = 1,
+
+        BasicAuth = 2
     }
 }

@@ -18,8 +18,7 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
         public const string CREDIT_CARD_HIPERCARD = "credit-card-hipercard";
         public const string CREDIT_CARD = "credit-card";
         public const string BANK_SLIP = "bank-slip";
-        public const string MARKETUP_PAYFASTER = "marketup-payfaster";
-
+        
         //-------
 
         [JsonProperty("code")]
@@ -27,7 +26,10 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
 
         [JsonProperty("name")]
         public string Name { get; set; }
-        
+
+        [JsonProperty("daysForPayment")]
+        public int? DaysForPayment { get; set; }
+
         public MarketUP.Marketplace.Common.PaymentConditionTypesEnum PaymentConditionTypeEnum { get; set; }
 
         public MarketUP.Marketplace.Common.PaymentConditionGroupsEnum PaymentConditionGroupEnum { get; set; }
@@ -39,27 +41,31 @@ namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
             this.PaymentConditionTypeEnum = Common.PaymentConditionTypesEnum.None;
         }
 
-        public PaymentConditionType(string code, string name, MarketUP.Marketplace.Common.PaymentConditionTypesEnum paymentConditionTypeEnum, MarketUP.Marketplace.Common.PaymentConditionGroupsEnum paymentConditionGroupEnum)
+        public PaymentConditionType(string code, string name, MarketUP.Marketplace.Common.PaymentConditionTypesEnum paymentConditionTypeEnum, 
+            MarketUP.Marketplace.Common.PaymentConditionGroupsEnum paymentConditionGroupEnum, int? daysForPayment)
         {
             this.Code = code;
             this.Name = name;
             this.PaymentConditionTypeEnum = paymentConditionTypeEnum;
             this.PaymentConditionGroupEnum = paymentConditionGroupEnum;
+            this.DaysForPayment = daysForPayment;
         }
 
         public static List<PaymentConditionType> List()
         {
             var list = new List<PaymentConditionType>();
-            list.Add(new PaymentConditionType(SUPPLIER_BILLING,         "Faturado pelo fornecedor",         Common.PaymentConditionTypesEnum.SupplierBilling,           Common.PaymentConditionGroupsEnum.SupplierBilling));
-            list.Add(new PaymentConditionType(CREDIT_CARD_ELO,          "Cartão de crédito Elo",            Common.PaymentConditionTypesEnum.CreditCardElo,             Common.PaymentConditionGroupsEnum.CreditCard));
-            list.Add(new PaymentConditionType(CREDIT_CARD_AMEX,         "Cartão de crédito Amex",           Common.PaymentConditionTypesEnum.CreditCardAmex,            Common.PaymentConditionGroupsEnum.CreditCard));
-            list.Add(new PaymentConditionType(CREDIT_CARD_MASTERCARD,   "Cartão de crédito Mastercard",     Common.PaymentConditionTypesEnum.CreditCardMastercard,      Common.PaymentConditionGroupsEnum.CreditCard));
-            list.Add(new PaymentConditionType(CREDIT_CARD_VISA,         "Cartão de crédito Visa",           Common.PaymentConditionTypesEnum.CreditCardVisa,            Common.PaymentConditionGroupsEnum.CreditCard));
-            list.Add(new PaymentConditionType(CREDIT_CARD_DINERS,       "Cartão de crédito Dinners",        Common.PaymentConditionTypesEnum.CreditCardDiners,          Common.PaymentConditionGroupsEnum.CreditCard));
-            list.Add(new PaymentConditionType(CREDIT_CARD_HIPERCARD,    "Cartão de crédito Hipercard",      Common.PaymentConditionTypesEnum.CreditCardHipercard,       Common.PaymentConditionGroupsEnum.CreditCard));
-            list.Add(new PaymentConditionType(CREDIT_CARD,              "Cartão de crédito",                Common.PaymentConditionTypesEnum.CreditCard,                Common.PaymentConditionGroupsEnum.CreditCard));
-            list.Add(new PaymentConditionType(BANK_SLIP,                "Boleto bancário",                  Common.PaymentConditionTypesEnum.BankSlip,                  Common.PaymentConditionGroupsEnum.BankSlip));
-            list.Add(new PaymentConditionType(MARKETUP_PAYFASTER,       "MarketUP PayFaster",               Common.PaymentConditionTypesEnum.MarketUPPayFaster,         Common.PaymentConditionGroupsEnum.MarketUPPayFaster));
+            list.Add(new PaymentConditionType(SUPPLIER_BILLING,         "Faturado pelo fornecedor",         Common.PaymentConditionTypesEnum.SupplierBilling,           Common.PaymentConditionGroupsEnum.SupplierBilling,  null));
+            list.Add(new PaymentConditionType(CREDIT_CARD_ELO,          "Cartão de crédito Elo",            Common.PaymentConditionTypesEnum.CreditCardElo,             Common.PaymentConditionGroupsEnum.CreditCard,       null));
+            list.Add(new PaymentConditionType(CREDIT_CARD_AMEX,         "Cartão de crédito Amex",           Common.PaymentConditionTypesEnum.CreditCardAmex,            Common.PaymentConditionGroupsEnum.CreditCard,       null));
+            list.Add(new PaymentConditionType(CREDIT_CARD_MASTERCARD,   "Cartão de crédito Mastercard",     Common.PaymentConditionTypesEnum.CreditCardMastercard,      Common.PaymentConditionGroupsEnum.CreditCard,       null));
+            list.Add(new PaymentConditionType(CREDIT_CARD_VISA,         "Cartão de crédito Visa",           Common.PaymentConditionTypesEnum.CreditCardVisa,            Common.PaymentConditionGroupsEnum.CreditCard,       null));
+            list.Add(new PaymentConditionType(CREDIT_CARD_DINERS,       "Cartão de crédito Dinners",        Common.PaymentConditionTypesEnum.CreditCardDiners,          Common.PaymentConditionGroupsEnum.CreditCard,       null));
+            list.Add(new PaymentConditionType(CREDIT_CARD_HIPERCARD,    "Cartão de crédito Hipercard",      Common.PaymentConditionTypesEnum.CreditCardHipercard,       Common.PaymentConditionGroupsEnum.CreditCard,       null));
+            list.Add(new PaymentConditionType(CREDIT_CARD,              "Cartão de crédito",                Common.PaymentConditionTypesEnum.CreditCard,                Common.PaymentConditionGroupsEnum.CreditCard,       null));
+            list.Add(new PaymentConditionType(BANK_SLIP,                "Boleto bancário",                  Common.PaymentConditionTypesEnum.BankSlip,                  Common.PaymentConditionGroupsEnum.BankSlip,         null));
+            list.Add(new PaymentConditionType(BANK_SLIP,                "Boleto bancário (7 dias)",         Common.PaymentConditionTypesEnum.BankSlip,                  Common.PaymentConditionGroupsEnum.BankSlip,         7));
+            list.Add(new PaymentConditionType(BANK_SLIP,                "Boleto bancário (14 dias)",        Common.PaymentConditionTypesEnum.BankSlip,                  Common.PaymentConditionGroupsEnum.BankSlip,         14));
+            list.Add(new PaymentConditionType(BANK_SLIP,                "Boleto bancário (30 dias)",        Common.PaymentConditionTypesEnum.BankSlip,                  Common.PaymentConditionGroupsEnum.BankSlip,         30));
             return list;
         }
 

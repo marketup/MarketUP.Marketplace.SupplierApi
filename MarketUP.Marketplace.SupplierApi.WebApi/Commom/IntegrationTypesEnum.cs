@@ -8,14 +8,12 @@ namespace MarketUP.Marketplace.Common
 {
     public enum IntegrationTypesEnum
     {
+        None = 0,
         Martins = 1,
-        
         Vtex = 2, 
-
         Unilever = 3,
-
         SupplierApi = 4,
-
-        ErpMarketUP = 5
+        ErpMarketUP = 5,
+        Atacadao = 6
     }
 }

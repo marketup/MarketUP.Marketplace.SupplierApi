@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MarketUP.Marketplace.Integration.ModelsSupplierApi
 {
-    public class ShoppingProductResponse
+    public class ShoppingProductResponse : BaseResponse
     {
         [JsonProperty("productID")]
         public string ProductID { get; set; }

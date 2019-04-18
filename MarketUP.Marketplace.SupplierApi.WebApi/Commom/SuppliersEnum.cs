@@ -17,6 +17,10 @@ namespace MarketUP.Marketplace.Common
         Roge = 6,
         Sawary = 7,
         Reckitt = 8,
-        Belfix = 9
+        Belfix = 9,
+        VilaNova = 10,
+        Josapar = 11,
+        Atacadao = 12,
+        Sample = 1253
     }
 }
