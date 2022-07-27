@@ -7,9 +7,9 @@ https://integracao-marketplace.marketup.com/integracao-api-especifica
 
 
 ## Código fonte
-O código foi escrito em C# utilizando .NET Framework 4.5
+O código foi escrito em C# utilizando .NET Framework 4.8
 -	Github: https://github.com/marketup/MarketUP.Marketplace.SupplierApi
--   Abrir o arquivo: "MarketUP.Marketplace.SupplierApi.sln" utilizando o Microsoft Visual Studio 2017 (ou superior)
+-   Abrir o arquivo: "MarketUP.Marketplace.SupplierApi.sln" utilizando o Microsoft Visual Studio 2022 (ou superior)
 -   No código, os itens que precisam ser alterados/implementados estão marcados com "TODO:"
 -   Para rodar a API, pressionar F5
 
